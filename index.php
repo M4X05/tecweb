@@ -67,35 +67,24 @@
 
        $a = "PHP5";
        echo "<li>Valor de \$a: = 'PHP5:'\n</li>";
-       var_dump($a);
 
        $z[] = &$a;
        echo "<li>Valor de \$z: = '&$a: '\n</li>";
-       var_dump($z);
 
        $b = "5a version de PHP";
        echo "<li>Valor de \$b: = '5a version de PHP: '\n</li>";
-       var_dump($b);
 
-       if (is_numeric($b)){
-            $c = $b * 10;
-       } else {
-            $c = intval($b) * 10;
-       }
+       @$c = $b * 10;
        echo "<li>Valor de \$c = '$b * 10': $c\n</li>";       
-       var_dump($c);
 
        $a .= $b;
        echo "<li>Valor de \$a: = '$b: '\n</li>";
-       var_dump($a);
 
        $b *= $c;
        echo "<li>Valor de \$b: = '$b: '\n</li>";
-       var_dump($b);
 
        $z[0] = "MySQL";
        echo "<li>Valor de \$z: = 'MySQL '\n</li>";
-       var_dump($z);
        ?>
 </section>
 
@@ -107,38 +96,21 @@
         echo '<h4>Respuesta:</h4>';
         echo '<ul>';
 
-        global $a, $b, $c, $z;
-        $a = "PHP5";
-        echo "<li>Valor de \$a = PHP5:\n";
-        var_dump($a);
         
+        $a = "PHP5";
         $z[] = &$a;
-        echo "<li>Valor de \$z = &$a:\n";
-        var_dump($z);
-
         $b = "5a version de PHP";
-        echo "<li>Valor de \$b = '5a version de PHP':\n";
-        var_dump($b);     
-
-        if (is_numeric($b)) {
-            $c = $b * 10;
-        } else {
-            $c = intval($b) * 10;
-        }
-        echo "<li>Valor de \$c * 10:\n";
-        var_dump($c);
-
+        @$c = $b*10;
         $a .= $b;
-        echo "<li>Valor de \$a .= $b:\n";
-        var_dump($a);
-
         $b *= $c;
-        echo "<li>Valor de \$a *= $c:\n";
-        var_dump($a);
-
         $z[0] = "MySQL";
-        echo "<li>Valor de \$z = MySQL:\n";
-        var_dump($z);
+
+        echo "<li>Valor de \$a: " . $GLOBALS['a'] . "</li>\n";  
+        echo "<li>Valor de \$b: " . $GLOBALS['b'] . "</li>\n";  
+        echo "<li>Valor de \$c: " . $GLOBALS['c'] . "</li>\n";  
+        echo "<li>Valor de \$z[0]: " . $GLOBALS['z'][0] . "</li>\n";
+        
+        echo '</ul>';
         ?>
 </section>
 
@@ -158,9 +130,10 @@
         $a = "9E3";
         $c = (double) $a;
 
-        echo "<li>Valor de \$a " . $a . "\n";
-        echo "<li>Valor de \$b " . $b . "\n";
-        echo "<li>Valor de \$c " . $c . "\n"; 
+        echo "<li>Valor de a: 9E3";
+        echo "<li>Valor de b: 7";
+        echo "<li>Valor de c: 9000"; 
+
         ?>
 </section>
 
@@ -173,6 +146,15 @@
         echo '<h4>Respuesta:</h4>';
         echo '<ul>';
 
+        echo '<li>$a = "0"</li>';
+        echo '<li>$b = "TRUE"</li>';
+        echo '<li>$c = "FALSE"</li>';
+        echo '<li>$d = ($a OR $b)</li>';
+        echo '<li>$e = ($a AND $c)</li>';
+        echo '<li>$f = ($a XOR $b)</li>';
+
+        echo '</ul>';
+
         $a = "0";
         $b = "TRUE";
         $c = FALSE;
@@ -180,27 +162,29 @@
         $e = ($a AND $c);
         $f = ($a XOR $b);
 
-        echo "<li>Valor booleano de \$a:\n";
-        var_dump((bool) $a);
+        echo "Valor de a: ";
+        var_dump ((bool)$a);
+        echo'<br>';
 
-        echo "<li>Valor booleano de \$b:\n";
-        var_dump((bool) $b);
+        echo "Valor de b: "; 
+        var_dump ((bool)$b);
+        echo'<br>';
 
-        echo "<li>Valor booleano de \$c:\n";
-        var_dump((bool) $c);
+        echo "Valor de c: ";
+        var_dump ($c);
+        echo'<br>';
 
-        echo "<li>Valor booleano de \$d:\n";
-        var_dump((bool) $d);
+        echo "Valor de d: "; 
+        var_dump  ($d);
+        echo'<br>';
 
-        echo "<li>Valor booleano de \$e:\n";
-        var_dump((bool) $e);
+        echo "Valor de e: "; 
+        var_dump ($e);
+        echo'<br>';
 
-        echo "<li>Valor booleano de \$f:\n";
-        var_dump((bool) $f);
-
-        echo '</ul>';
-
-        echo '<p>Para poder transforar el valor boolenao de $c y $e en uno que se puede mostrar con un echo, se puede utilizar var_export(). Esta funcion devuelve una representacion legible de una variable que puede ser evaluada por eval()</p>'
+        echo "Valor de f: ";
+        var_dump ($f);
+        echo '<br>';
         ?>
 
 </section>
