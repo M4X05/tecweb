@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html>
+
+  <head>
+    <meta charset="utf-8" >
+    <title>Registro al Producto</title>
+    <style type="text/css">
+      ol, ul { 
+      list-style-type: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Registro al Producto</h1>
+
+    <p>Rellene los siguientes campos</p>
+
+    <form id="formularioTenis" action="http://localhost/tecweb/practicas/p08-base/set_producto_v2.php" method="post">
+
+    <h2>Información de Participación</h2>
+
+      <fieldset>
+        <legend>Información del Producto</legend>
+
+        <ul>
+          <li><label for="form-name">Nombre:</label> <input type="text" name="name" id="form-name"></li>
+          <li><label for="form-brand">Marca:</label> <input type="text" name="brand" id="form-brand"></li>
+          <li><label for="form-mod">Modelo:</label> <input type="text" name="model" id="form-mod"></li>
+          <li><label for="form-price">Precio:</label> <input type="number" name="price" id="form-price"></li>
+          <li><label for="form-details">Detalles del Producto:</label><br><textarea name="details" rows="4" cols="60" id="form-story" placeholder="No más de 250 caracteres de longitud"></textarea></li>
+          <li><label for="form-unities">Unidades:</label> <input type="number" name="unities" id="form-details" ></li>
+        </ul>
+      </fieldset>
+
+      <p>
+        <input type="submit" value="Enviar">
+        <input type="reset">
+      </p>
+
+    </form>
+  </body>
+</html>
