@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <style type="text/css">
+        ol, ul { 
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Editar Producto</h1>
+
+    <p>Modifique los campos que desee actualizar</p>
+
+    <form id="formularioProducto" action="update_producto.php" method="post">
+        <h2>Información del Producto</h2>
+        <fieldset>
+            <legend>Información del Producto</legend>
+
+            <input type="hidden" name="id_producto" value="<?php echo $id_producto; ?>">
+            <ul>
+                <li><label for="form-name">Nombre:</label> <input type="text" name="name" id="form-name" value="<?php echo isset($nombre) ? $nombre : ''; ?>"></li>
+                <li><label for="form-brand">Marca:</label> <input type="text" name="brand" id="form-brand" value="<?php echo isset($marca) ? $marca : ''; ?>"></li>
+                <li><label for="form-mod">Modelo:</label> <input type="text" name="model" id="form-mod" value="<?php echo isset($modelo) ? $modelo : ''; ?>"></li>
+                <li><label for="form-price">Precio:</label> <input type="number" name="price" id="form-price" value="<?php echo isset($precio) ? $precio : ''; ?>"></li>
+                <li><label for="form-details">Detalles del Producto:</label><br><textarea name="details" rows="4" cols="60" id="form-details"><?php echo isset($detalles) ? $detalles : ''; ?></textarea></li>
+                <li><label for="form-unities">Unidades:</label> <input type="number" name="unities" id="form-unities" value="<?php echo isset($unidades) ? $unidades : ''; ?>"></li>
+            </ul>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Actualizar">
+            <input type="reset" value="Restablecer">
+        </p>
+    </form>
+</body>
+
+</html>
